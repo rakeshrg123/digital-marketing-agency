@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Contact Form Submission</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
+  <div style="max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <h2 style="color: #727cf5;">New Contact Form Submission</h2>
+    <p style="text-transform: capitalize;"><strong>Name:</strong> <%= name %></p>
+    <p style="text-transform: capitalize;"></p><strong>Email:</strong> <%= email %></p>
+    <p style="text-transform: capitalize;"></p><strong>Message:</strong> <%= message %></p>
+    <p style="text-transform: capitalize;"></p><strong>Received at:</strong> <%= new Date().toLocaleString() %></p>
+    <br>
+    <p>This message was submitted through your website contact form.</p>
+    <p>Best regards,<br>Your Website Team</p>
+  </div>
+</body>
+</html>

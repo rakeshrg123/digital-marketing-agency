@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title style="text-transform: capitalize;">Meeting Confirmation: <%= topic %></title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
+  <div style="max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+    <h2 style="color: #727cf5;">Your meeting is confirmed!</h2>
+    <p style="text-transform: capitalize;"></p><strong>Topic:</strong> <%= topic %></p>
+    <p style="text-transform: capitalize;"></p><strong>When:</strong> <%= startDateTime.toLocaleString() %></p>
+    <p style="text-transform: capitalize;"></p><strong>Duration:</strong> <%= duration %> minutes</p>
+    <div style="background-color: #f8f8f8; padding: 15px; border-radius: 5px; margin: 15px 0; font-size: 14px;">
+      <strong>Join:</strong> <a href="<%= meetingLink %>">Google Meet Link</a>
+    </div>
+    <p>We look forward to meeting with you!</p>
+    <p>Best regards,<br>The Digital Agency Team</p>
+  </div>
+</body>
+</html>
