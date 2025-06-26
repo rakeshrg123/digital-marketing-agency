@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const BlogManagement = () => {
-  const API_BASE_URL = "http://localhost:3000";
+  const API_BASE_URL = "https://digital-marketing-agency-lime.vercel.app";
   const [blogs, setBlogs] = useState([]);
   const [formData, setFormData] = useState({
     title: "",

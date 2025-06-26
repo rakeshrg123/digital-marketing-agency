@@ -14,7 +14,7 @@ const AdminLogin = () => {
         navigate("/blog-management");
       }
     }, []);
-  const API_BASE_URL = "http://localhost:3000";
+  const API_BASE_URL = "https://digital-marketing-agency-lime.vercel.app";
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

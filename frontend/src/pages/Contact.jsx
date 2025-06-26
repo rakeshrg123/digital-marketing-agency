@@ -68,7 +68,7 @@ const Contact = () => {
     setFormErrors({});
 
     try {
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch("https://digital-marketing-agency-lime.vercel.app/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -119,7 +119,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/contact/schedule-meeting",
+        "https://digital-marketing-agency-lime.vercel.app/contact/schedule-meeting",
         {
           method: "POST",
           headers: {
