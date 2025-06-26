@@ -19,11 +19,8 @@ mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Enable CORS (add this before routes)
-app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true               
-}));
+
+  app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 app.use('/', indexRouter);
 app.use('/contact', apiRouter);
