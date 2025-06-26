@@ -7,7 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 require('dotenv').config();
-const mongoose = require('mongoose');
 const apiRouter = require('./routes/contactRoutes');
 const admin = require('./routes/admin');
 const cors = require('cors')
@@ -15,9 +14,6 @@ const cors = require('cors')
 
 var app = express();
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
 
 
   app.use(cors());

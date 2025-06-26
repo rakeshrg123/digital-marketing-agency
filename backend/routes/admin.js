@@ -5,6 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const Blog = require('../models/Blogs');
 const jwt = require('jsonwebtoken');
+const connectToDB = require('../lib/db');
 const authMiddleware = require('../middlewares/auth');
 
 // Apply auth middleware to all admin routes
@@ -35,6 +36,7 @@ router.post('/verify', (req, res) => {
 // Get all blogs
 router.get('/blogs', async (req, res) => {
   try {
+    await connectToDB();
     const blogs = await Blog.find().sort({ createdAt: -1 });
     res.json(blogs);
   } catch (err) {
@@ -86,6 +88,7 @@ router.put('/blogs/:id', upload.single('image'), async (req, res) => {
     const updateData = {
       ...req.body,
     };
+    await connectToDB();
 
     // If a new image was uploaded, include it in update
     if (req.file) {
@@ -110,6 +113,7 @@ router.put('/blogs/:id', upload.single('image'), async (req, res) => {
 // Delete blog
 router.delete('/blogs/:id', async (req, res) => {
   try {
+    await connectToDB();
     const blog = await Blog.findByIdAndDelete(req.params.id);
     if (!blog) return res.status(404).json({ message: 'Blog not found' });
     res.json({ message: 'Blog deleted' });

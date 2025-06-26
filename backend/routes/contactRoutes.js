@@ -5,6 +5,7 @@ const Contact = require('../models/Contact');
 const Meeting = require('../models/Meeting');
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
+const connectToDB = require('../lib/db');
 const path = require('path');
 const ejs = require('ejs');
 const fs = require('fs');
@@ -50,6 +51,7 @@ router.post('/', [
   body('message').notEmpty().withMessage('Message is required')
 ], async (req, res) => {
   try {
+    await connectToDB();
     // Validate input
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -140,6 +142,7 @@ router.post('/schedule-meeting', [
   const { date, time, duration, topic, attendeeEmail } = req.body;
 
   try {
+    await connectToDB();
     // Create time objects
     const startDateTime = new Date(`${date}T${time}`);
     const endDateTime = new Date(startDateTime.getTime() + parseInt(duration) * 60000);
